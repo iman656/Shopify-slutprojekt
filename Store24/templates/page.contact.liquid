@@ -1,0 +1,46 @@
+{% form 'contact' %}
+    {{ form.errors | default_errors }}
+  <div class="contact-main">
+   
+
+    <div class="contact-main-wrapper">
+      <h1>Contact Us</h1>
+    <div class="connn">
+     
+      <input type="text" name="contact[first_name]" id="first-name" placeholder="Enter First Name" required/>
+    </div>
+  
+    <div class="connn">
+      
+      <input type="text" name="contact[last_name]" id="last-name"  placeholder="Enter Last Name" required/>
+    </div>
+  
+    <div class="connn">
+      
+      <input type="tel" name="contact[phone]" id="phone" placeholder="Enter Your Number" required/>
+    </div>
+  
+    <div class="connn">
+      
+      <input type="email" name="contact[email]" id="email" placeholder="Enter Your Email" required/>
+    </div>
+  
+    <div class="connn">
+     
+      <input type="text" name="contact[order_number]" id="order-number"  placeholder="Enter Your Order Number If Have" />
+    </div>
+  
+    <div class="connn">
+      
+      <textarea name="contact[body]" id="message"  placeholder="Describe Your Query" rows="6"></textarea>
+    </div>
+  
+    <div class="submit">
+      <input type="submit" value="Submit" />
+    </div>
+
+</div>
+
+    </div>
+  {% endform %}
+  

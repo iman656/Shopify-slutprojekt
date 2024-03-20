@@ -1,0 +1,128 @@
+
+
+      <style>
+       
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        h1 {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+        .account-info {
+          margin-bottom: 30px;
+        }
+        .account-info p {
+          margin: 10px 0;
+        }
+        .address {
+          margin-bottom: 20px;
+        }
+        .address h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+        .address p {
+          margin: 5px 0;
+        }
+        .order-history {
+          margin-top: 30px;
+        }
+        .order {
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+        }
+        .order:last-child {
+          border-bottom: none;
+        }
+        .order h3 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+        .order ul {
+          list-style: none;
+          padding: 0;
+        }
+        .order ul li {
+          margin-bottom: 5px;
+        }
+        .pagination {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+        }
+        .pagination a {
+          margin: 0 5px;
+          padding: 5px 10px;
+          background-color: #007bff;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        .pagination a:hover {
+          background-color: #0056b3;
+        }
+      </style>
+    
+  <section>
+      <div class="container">
+        <h1>My Account</h1>
+        <div class="account-info">
+          <h2>Account Information</h2>
+          <p><strong>Name:</strong> {{ customer.first_name }} {{ customer.last_name }}</p>
+          <p><strong>Email:</strong> {{ customer.email }}</p>
+          <!-- Add more customer information fields as needed -->
+        </div>
+        {% if customer.addresses.size > 0 %}
+          <div class="address">
+            <h2>Addresses</h2>
+            {% for address in customer.addresses %}
+              <p><strong>{{ address.address1 }} {{ address.city }} {{ address.province_code }} {{ address.country_code }}</strong></p>
+              <!-- Add more address details as needed -->
+            {% endfor %}
+          </div>
+        {% endif %}
+        <div class="order-history">
+          <h2>Order History</h2>
+          {% paginate customer.orders by 5 %}
+            {% if customer.orders.size > 0 %}
+              {% for order in customer.orders %}
+                <div class="order">
+                  <h3>Order #{{ order.order_number }}</h3>
+                  <ul>
+                    <li><strong>Date:</strong> {{ order.created_at | date: "%B %d, %Y" }}</li>
+                    <li><strong>Total:</strong> {{ order.total_price | money }}</li>
+                    <li><strong>Status:</strong> {{ order.financial_status }}</li>
+                    <!-- Add more order details as needed -->
+                  </ul>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No orders found.</p>
+            {% endif %}
+            <div class="pagination">
+              {% if paginate.pages > 1 %}
+                {% if paginate.previous.is_link %}
+                  <a href="{{ paginate.previous.url }}">Previous</a>
+                {% endif %}
+                {% for page in (1..paginate.pages) %}
+                  {% if page == paginate.current_page %}
+                    <span>{{ page }}</span>
+                  {% else %}
+                    <a href="{{ paginate.url | replace: 'page', page }}">{{ page }}</a>
+                  {% endif %}
+                {% endfor %}
+                {% if paginate.next.is_link %}
+                  <a href="{{ paginate.next.url }}">Next</a>
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endpaginate %}
+        </div>
+      </div>
+     <a href="/account/logout" class="logout-btn">Logout</a>
+    </section>
+    

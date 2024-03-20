@@ -1,0 +1,41 @@
+{% form 'create_customer' %}
+    {{ form.errors | default_errors }}
+  <div class="contact-main">
+
+    
+    <div class="contact-main-wrapper">
+      <h2>Register To Our Store</h2>
+    <div class="connn">
+      <label for="first-name">First name</label>
+      <input type="text" name="customer[first_name]" placeholder="Enter Your First Name">
+    </div>
+  
+    <div class="connn">
+      <label for="last-name">Last name</label>
+      <input type="text" name="customer[last_name]" placeholder="Enter Your Last Name">
+    </div>
+  
+    <div class="connn">
+      <label for="email">Email</label>
+      <input type="email" name="customer[email]" placeholder="Enter Your Email">
+    </div>
+  
+    <div class="connn">
+      <label for="password">Password</label>
+      <input type="password" name="customer[password]" placeholder="Enter Your Password">
+    </div>
+  
+    <div class="submit">
+      <input type="submit" value="Sign Up">    <a href="https://mystoregrit24.myshopify.com/account/login">Already Have a Account?</a>
+    </div>
+
+ 
+</div>
+    </div>
+  {% endform %}
+  
+  {% schema %}
+  {
+    "name": "Register"
+  }
+  {% endschema %}

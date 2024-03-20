@@ -1,0 +1,62 @@
+
+  <div class="collf">
+   
+    {% assign collection_handle = section.settings.cat1 %}
+
+    {% assign collection = collections[collection_handle] %}
+    
+    {% if collection %}
+       <div class="pplist">
+      <ul>
+        {% for product in collection.products %}
+          
+          <li>
+            <img src= "{{ product.featured_image | image_url: width: 240, height: 440 }}" alt="{{ product.title }}" class="impp">
+            <h3>{{ product.title }}</h3>
+            <p> {{ product.price | money }}</p>
+            <p> {{ product.description }}</p>
+        
+          </li>
+         
+        {% endfor %}
+      </ul> </div>
+    {% else %}
+      <p>Collection not found</p>
+    {% endif %}
+    
+</div>
+
+
+
+
+<style>
+  .collf {
+    display: flex ;
+    width: 100%;
+    height: 60vh;
+    background-color: #f5f5f5;
+   
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .pplist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li{
+text-align: center;
+list-style: none;
+}
+.impp{
+
+width: 130px;
+height: 130px
+}
+</style>

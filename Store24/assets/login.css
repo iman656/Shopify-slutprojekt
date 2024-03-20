@@ -1,0 +1,60 @@
+.main-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 100vh;
+}
+.all-forms{
+
+}
+#login-form{
+   
+    flex-direction: column;
+    justify-content: left;
+    
+}
+#login-form form{
+   
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+}
+.submit2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.submit2 input{
+    height: 50px;
+    width: 90px;
+    background-color: rgb(42, 42, 42);
+    color: aliceblue;
+}
+.submit2 a{
+    
+        text-decoration: none;
+        color: rgb(45, 45, 45);
+       
+        font-size: 17;
+        padding-left: 40px;
+    
+}
+#frla{
+    height: 50px;
+    width: 50vw;
+    margin: 0;
+    
+    
+    background-color: rgb(214, 214, 214);
+}
+#frla::placeholder{
+    font-size: 15px;
+    padding: 10px;
+    color: rgb(147, 147, 147);
+}
+.frla{
+    
+   flex-direction: column;
+    padding-bottom:30px ;
+}
+

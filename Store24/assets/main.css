@@ -1,0 +1,145 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Neuton", serif;
+}
+.an-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+}
+.an-right{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+}
+.an-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+}
+.header-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px ;
+    
+}
+.header-category{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 25px;
+}
+.navlink{
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none !important;
+    list-style: none;
+    
+}
+.icon{
+   font-size: 25px;
+  margin-right: 20px;
+   font-weight: 600;
+    color: #3C3B3B;
+}
+.iconn{
+    font-size: 15px;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.navmain{
+    display: flex;
+   gap: 18px;
+    text-decoration: none;
+}
+.header-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.header-icons input{
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 253, 253);
+    margin-right: 15px;
+    
+}
+.sidebar{
+
+    display: none;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: #c6c6c6;
+    height: 100vh;
+    width: 300px;
+    padding: 20px;
+   
+    flex-direction: column;
+    
+   
+}
+.sidebar i{
+    align-self: flex-end;
+    cursor: pointer;
+}
+#open-btn{
+    cursor: pointer;
+    display: none;
+}
+.header-category2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+.header-category2 ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.header-category2 li{
+    border-bottom: #3C3B3B 1px solid;
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 800px) {
+
+    #open-btn{
+        cursor: pointer;
+        display: flex;
+    }
+    .header-icons form{
+        display: none;
+    }
+    .header-category{
+        display: none;
+    }
+
+}

@@ -1,0 +1,438 @@
+<section>
+    
+        <div class="slider">
+            
+            <div class="list">
+
+
+                  {% if section.settings.bn2 == blank %}
+                <div class="item item1" style="background-image:url('{{ 'bn2.jpg' | asset_url }}')" >
+                    <div class="item-content"  >
+                    <span class="p1">{{ section.settings.bn2heading }}</span>
+
+                    <p class="p2">{{ section.settings.bn2description }}</p>
+                    <button class="btncon">{{ section.settings.bn2button }}</button></div>         
+                </div>
+                {% else %}
+                <div class="item item1" style="background-image:url('{{ section.settings.bn1 }}')" >
+                    <div class="item-content"  >
+                    <span class="p1">{{ section.settings.bn2heading }}</span>
+
+                    <p class="p2">{{ section.settings.bn2description }}</p>
+                    <button class="btncon">{{ section.settings.bn2button }}</button></div>         
+                </div>
+
+
+
+                {% endif %}
+
+
+                {% if section.settings.bn1 == blank %}
+                <div class="item item2" style="background-image:url('{{ 'bn1.jpg' | asset_url }}')" >
+                    <div class="item-content">
+                        <span class="p1">{{ section.settings.bn1heading }}</span>
+    
+                        <p class="p2">{{ section.settings.bn1description }}</p>
+                        <button class="btncon">{{ section.settings.bn1button }}</button></div>
+                
+                </div>
+                {% else %}
+                <div class="item item2" style="background-image:url('{{ section.settings.bn1 }}')" >
+                    <div class="item-content">
+                        <span class="p1">{{ section.settings.bn1heading }}</span>
+    
+                        <p class="p2">{{ section.settings.bn1description }}</p>
+                        <button class="btncon">{{ section.settings.bn1button }}</button></div>
+
+
+
+                {% endif %}
+
+
+             {% if section.settings.bn4  == blank %}
+                <div class="item item3" style="background-image:url('{{ 'bn4.jpg' | asset_url }}')" >
+                    <div class="item-content">
+                        <span class="p1">{{ section.settings.bn4heading }}</span>
+    
+                        <p class="p2"> {{ section.settings.bn4description }}</p>
+                        <button class="btncon">{{ section.settings.bn4button }}</button></div>
+                
+                
+                </div>
+                {% else %}
+                <div class="item item3" style="background-image:url('{{ 'bn4.jpg' | asset_url }}')" >
+                    <div class="item-content">
+                        <span class="p1">{{ section.settings.bn4heading }}</span>
+    
+                        <p class="p2"> {{ section.settings.bn4description }}</p>
+                        <button class="btncon">{{ section.settings.bn4button }}</button></div>
+                
+                
+                </div>
+
+
+                {% endif %}
+            
+            
+            </div>
+
+             
+               
+
+            
+            <div class="buttons">
+                <button id="prev"></button>
+                <button id="next"></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+           
+        </div>
+   
+    
+</section>
+
+<style>
+   
+    .slider {
+        width: 100%; /* Change this to adapt to different viewport sizes */
+        height: 500px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .slider .list {
+        position: absolute;
+        width: 300%; /* Assuming each item takes 100% width */
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        transition: 1s;
+    }
+    
+    .slider .list .item {
+        width: 33.33%; 
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .item.item1 {
+       
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .item.item2 {
+       
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .item.item3 {
+   
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .slider .buttons {
+        position: absolute;
+        top: 45%;
+        left: 5%;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .slider .buttons button {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff0;
+        color: #fff;
+        border: none;
+        font-family: monospace;
+        font-weight: bold;
+    }
+    
+    .slider .dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        color: #fff;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .slider .dots li {
+        list-style: none;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        margin: 10px;
+        border-radius: 20px;
+        transition: 0.5s;
+    }
+    
+    .slider .dots li.active {
+        width: 30px;
+    }
+    .item-content{
+        display: flex;
+        width: 80vw;
+        
+        flex-direction: column;
+        
+        padding-bottom: 60px;
+        padding-left: 20px;
+        gap: 0;
+    }
+    .item-content .p1{
+        color: #ffffff;
+        font-size: 60px;
+   width: 50%;
+   font-weight: 500;
+        
+    
+    
+    }
+    .item-content .p2{
+        padding-top: -30px;
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: 400;
+    }
+    .item-content .btncon{
+    
+    width: 120px;
+    height: 40px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .slider {
+            height: 400px;
+        }
+        .item-content .p1{
+            font-size: 30px
+        }
+        .item-content .p2{
+            font-size: 20px
+        }
+    }
+    
+    }
+
+    @media screen and (max-width: 400px){
+        .item-content .p1{
+            font-size: 20px
+        }
+        .item-content .p2{
+            font-size: 15px
+        }
+       
+
+    
+    
+    }
+
+
+</style>
+
+    <script>
+    
+    
+        let slider = document.querySelector('.slider .list');
+        let items = document.querySelectorAll('.slider .list .item');
+        let next = document.getElementById('next');
+        let prev = document.getElementById('prev');
+        let dots = document.querySelectorAll('.slider .dots li');
+        
+        let lengthItems = items.length - 1;
+        let active = 0;
+        next.onclick = function(){
+            active = active + 1 <= lengthItems ? active + 1 : 0;
+            reloadSlider();
+        }
+        prev.onclick = function(){
+            active = active - 1 >= 0 ? active - 1 : lengthItems;
+            reloadSlider();
+        }
+        let refreshInterval = setInterval(()=> {next.click()}, 8000);
+        function reloadSlider(){
+            slider.style.left = -items[active].offsetLeft + 'px';
+            // 
+            let last_active_dot = document.querySelector('.slider .dots li.active');
+            last_active_dot.classList.remove('active');
+            dots[active].classList.add('active');
+        
+            clearInterval(refreshInterval);
+            refreshInterval = setInterval(()=> {next.click()}, 8000);
+        
+            
+        }
+        
+        dots.forEach((li, key) => {
+            li.addEventListener('click', ()=>{
+                 active = key;
+                 reloadSlider();
+            })
+        })
+        window.onresize = function(event) {
+            reloadSlider();
+        };
+        
+        
+    
+    
+    </script>
+
+
+    
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+
+    {
+        "type": "image_picker",
+        "id": "bn2",
+        "label": "First Slide Image"
+    
+    
+    
+    },
+    {
+
+        "type": "text",
+        "id": "bn2heading",
+        "label": "First Slide Heading",
+        "default" :"This is the heading of Me"
+    },
+    
+    {
+        "type": "text",
+        "id": "bn2description",
+        "label": "First Slide Description",
+        "default" :"This is the description for the heading above"
+     
+    
+    },
+    
+    {
+        "type": "text",
+        "id": "bn2button",
+        "label": "First Slide Button Text",
+        "default" :"Shop Now"
+        
+    
+    
+    },
+    {
+        "type": "image_picker",
+        "id": "bn1",
+        "label": "First Slide Image"
+    
+    
+    
+    },
+    {
+
+        "type": "text",
+        "id": "bn1heading",
+        "label": "Second Slide Heading",
+        "default" :"This is the heading of Me"
+    },
+    
+    {
+        "type": "text",
+        "id": "bn1description",
+        "label": "Second Slide Description",
+        "default" :"This is the description for the heading above"
+     
+    
+    },
+    
+    {
+        "type": "text",
+        "id": "bn1button",
+        "label": "Second Slide Button Text",
+        "default" :"Shop Now"
+        
+    
+    
+    },
+    {
+        "type": "image_picker",
+        "id": "bn4",
+        "label": "Third Slide Image"
+    
+    
+    
+    },
+    {
+
+        "type": "text",
+        "id": "bn4heading",
+        "label": "Third Slide Heading",
+        "default" :"This is the heading of Me"
+    },
+    
+    {
+        "type": "text",
+        "id": "bn4description",
+        "label": "Third Slide Description",
+        "default" :"This is the description for the heading above"
+     
+    
+    },
+    
+    {
+        "type": "text",
+        "id": "bn4button",
+        "label": "Third Slide Button Text",
+        "default" :"Shop Now"
+        
+    
+    
+    }
+
+
+
+  ],
+  "presets":[
+    {
+    "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

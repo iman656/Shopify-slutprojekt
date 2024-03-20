@@ -1,0 +1,263 @@
+<section>
+  {% assign featured_collection = collections['featured'] %}
+
+  {% if featured_collection %}
+    {% assign featured_products = featured_collection.products %}
+    {% if featured_products.size > 0 %}
+      <div class="featured-products">
+        <h2>{{ section.settings.featurecolheading }}</h2>
+        <div class="product-grid">
+          {% assign count = 0 %}
+          {% for product in featured_products %}
+            {% if count < 4 %}
+              {% assign first_variant = product.variants.first %}
+              <div class="product">
+                <!-- Wrap product with its link -->
+                <a href="{{ product.url }}">
+                  <!-- Render product details here -->
+                  <div class="product-image">
+                    <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}">
+                    <!-- Check if SKU is 0 -->
+                    {% if first_variant and first_variant.sku == "0" %}
+                      <button type="button" class="sold-out-btn">Sold Out</button>
+                    {% endif %}
+                  </div>
+                  <div class="product-details">
+                    {% assign title_words = product.title | split: ' ' %}
+                    {% assign truncated_title = title_words | slice: 0, 2 | join: ' ' %}
+                    <span>{{ truncated_title }}</span>
+                    <p>{{ product.price | money }}</p>
+                    <!-- Add to cart button -->
+                    {% if first_variant and first_variant.sku != "0" %}
+                      <form action="/cart/add" method="post">
+                        <input type="hidden" name="id" value="{{ first_variant.id }}">
+                        <input type="submit" value="{{ section.settings.addtocarttext }}" id="addtocart">
+                      </form>
+                    {% endif %}
+                  </div>
+                </a>
+              </div>
+              {% assign count = count | plus: 1 %}
+            {% else %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div><span>There are no featured Products.</span></div>
+    {% endif %}
+  {% endif %}
+</section>
+
+<style>
+.featured-products{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px
+   
+}
+.featured-products h2{
+
+    font-size: {{  section.settings.featurecolheadingsize }};
+    color: {{  section.settings.featurecolheadingcolor}};
+    font-weight: 600;
+
+}
+.product-grid{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+    
+ 
+  scrollbar-color: #171717;
+}
+.product-image {
+    position: relative;
+    
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }.sold-out-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: {{ section.settings.addtocarttextbg }};
+    color: {{  section.settings.addtocarttextcolor}};
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+.product-details {
+    padding-top: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+  
+  }
+.product-details span{
+
+    font-size: 25px;
+    color: #3C3B3B;
+    font-weight: 500;
+
+}
+.product-details p{
+
+    font-size: 18px;
+    color: #3C3B3B;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 360px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 400px;
+    background-color: {{  section.settings.cardbg }};
+
+
+}
+.product:hover{
+background-color: {{  section.settings.cardhoverbg }};
+
+}
+.product a{
+text-decoration: none;
+color: black;}
+.product-details form{
+width:100%;}
+#addtocart{
+width: 100%;
+height: 50px;
+background-color: {{ section.settings.addtocarttextbg }};
+color: {{  section.settings.addtocarttextcolor}};
+cursor: pointer;
+}
+@media (max-width: 1100px){
+
+  .product-details span{
+
+    font-size: 18px;
+    color: #3C3B3B;
+    font-weight: 500;
+
+}
+.product-details p{
+
+  font-size: 15px;
+  color: #3C3B3B;
+}
+
+}
+@media (max-width: 800px){
+
+.product-grid{
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+}
+
+@media (max-width: 400px){
+.product{
+  width: auto !important}
+}
+  
+</style>
+{% schema %}
+{
+  "name": "Featured",
+  "settings": [
+    {
+        "type": "text",
+        "id": "featurecolheading",
+        "label": "Feature Collection Heading Text",
+        "default": "Featured Collection"
+      },
+      {
+    
+        "type": "color",
+        "id": "featurecolheadingcolor",
+        "label": "Feature Collection Heading Color",
+        "default": "#3C3B3B"
+    
+      },
+      {
+        "type": "range",
+        "id": "featurecolheadingsize",
+        "label": "Feature Collection Heading Size",
+        "default": 38,
+        "min": 4,
+        "max": 48,
+        "step": 1,
+        "unit": "px"
+      },
+
+    {
+    
+        "type": "color",
+        "id": "cardbg",
+        "label": "Product Card Background Color",
+        "default": "#ffffff"
+    
+    
+    },
+    {
+    
+        "type": "color",
+        "id": "cardhoverbg",
+        "label": "Product Card Hover Color",
+        "default": "#f1f1f1"
+    
+    
+    }
+    ,
+    {
+        "type": "text",
+        "id": "addtocarttext",
+        "label": "Add to cart button Text",
+        "default": "Add to Cart"
+      }
+      ,
+      {
+        "type": "color",
+        "id": "addtocarttextbg",
+        "label": "Add to cart button Background",
+        "default": "#3C3B3B"
+
+    
+    
+    },
+    {
+        "type": "color",
+        "id": "addtocarttextcolor",
+        "label": "Add to cart button Text",
+        "default": "#ffffff"
+
+    
+    
+    }
+  ],
+  "presets": [
+    {
+    "name" : "FeaturedCollection"
+    }
+  ]
+}
+
+{% endschema %}
