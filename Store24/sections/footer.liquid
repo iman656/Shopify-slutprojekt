@@ -14,28 +14,28 @@
         <input type="email" id="contact_email" name="contact[email]" placeholder="Your Email" required>
         <div id="spacer"></div>
 
-        <button type="submit" class="btn">Subscribe</button>
+        <button type="submit" class="btns">Subscribe</button>
       {% endform %}
     </div>
 
     <div class="footer-links-main">
       <div class="footer-links">
         <span class="pheader">{{ section.settings.footerheading1 }}</span>
-        <a class="linka" href="{{ section.settings.footerlink1 }}"><span class="linkclass">{{  section.settings.footerlink1label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink2 }}"><span class="linkclass">{{  section.settings.footerlink2label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink3 }}"><span class="linkclass">{{  section.settings.footerlink3label }}</span></a>
+        <span class="linkclass">{{  section.settings.footerlink1label }}</span>
+        <span class="linkclass">{{  section.settings.footerlink2label }}</span>
+        <span class="linkclass">{{  section.settings.footerlink3label }}</span>
       </div>
       <div class="footer-links">
         <span class="pheader">{{ section.settings.footerheading2 }}</span>
-        <a class="linka" href="{{ section.settings.footerlink4 }}"><span class="linkclass">{{  section.settings.footerlink4label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink5 }}"><span class="linkclass">{{  section.settings.footerlink5label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink6 }}"><span class="linkclass">{{  section.settings.footerlink6label }}</span></a>
+        <span class="linkclass">{{  section.settings.footerlink4label }}</span>
+        <span class="linkclass">{{  section.settings.footerlink5label }}</span>
+        <span class="linkclass">{{  section.settings.footerlink6label }}</span>
       </div>
-      <div class="footer-links">
+      <div class="footer-links-social">
         <span class="pheader">{{ section.settings.footerheading3 }}</span>
-        <a class="linka" href="{{ section.settings.footerlink7 }}"><span class="linkclass">{{  section.settings.footerlink7label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink8 }}"><span class="linkclass">{{  section.settings.footerlink8label }}</span></a>
-        <a class="linka" href="{{ section.settings.footerlink9 }}"><span class="linkclass">{{  section.settings.footerlink9label }}</span></a>
+        <div>
+       <a href="{{ section.settings.sociallinks1 }}"> <i class="fa-brands fa-facebook"></i></a>
+       <a href="{{ section.settings.sociallinks2 }}"> <i class="fa-brands fa-instagram"></i></a></div>
       </div>
     </div>
   </div>
@@ -63,178 +63,86 @@
       "type": "text",
       "id": "footerheading1",
       "label": " Link Heading 1",
-      "default": "Guides"
+      "default": "Öppetider"
     },
     {
         "type": "text",
       "id": "footerlink1label",
-      "label": " Link Label 1",
-      "default": "Home"
+      "label": " Month",
+      "default": "Månd: stängt"
     },
-    {
-        "type": "url",
-        "id": "footerlink1",
-        "label": "Link 1",
-        "default": "/"
-    }
-    ,
+   
     {
         "type": "text",
       "id": "footerlink2label",
-      "label": " Link Label 2",
-      "default": "About"
+      "label": "Time",
+      "default": "Tisd-Fred: 12-18"
     },
-    {
-        "type": "url",
-        "id": "footerlink2",
-        "label": "Link 2",
-        "default": "/"
-    }
-    ,
+   
     {
         "type": "text",
       "id": "footerlink3label",
-      "label": " Link Label 3",
-      "default": "Contact"
+      "label": "Date",
+      "default": "Lörd: 11-14"
     },
-    {
-        "type": "url",
-        "id": "footerlink3",
-        "label": "Link 3",
-        "default": "/"
-    },
+   
     {
         
         "type": "text",
         "id": "footerheading2",
         "label": " Link Heading 2",
-        "default": "Guides"
+        "default": "Kontakta oss"
       },
       {
         "type": "text",
       "id": "footerlink4label",
-      "label": " Link Label 4",
-      "default": "Home"
+      "label": "Email 1",
+      "default": "butik@mystorevortex.se"
     },
-    {
-        "type": "url",
-        "id": "footerlink4",
-        "label": "Link 4",
-        "default": "/"
-    }
-    ,
+   
     {
         "type": "text",
       "id": "footerlink5label",
-      "label": " Link Label 5",
-      "default": "About"
+      "label": "Email 2",
+      "default": "service@mystorevortex.se"
     },
-    {
-        "type": "url",
-        "id": "footerlink5",
-        "label": "Link 5",
-        "default": "/"
-    }
-    ,
+   
     {
         "type": "text",
       "id": "footerlink6label",
-      "label": " Link Label 6",
-      "default": "Contact"
+      "label": " Conatact NO",
+      "default": "031-000000"
     },
-    {
-        "type": "url",
-        "id": "footerlink6",
-        "label": "Link 6",
-        "default": "/"
-    },
+   
     {
         
         "type": "text",
         "id": "footerheading3",
         "label": " Link Heading 3",
-        "default": "Guides"
+        "default": "Vi är sociala"
       },
-      {
-        "type": "text",
-      "id": "footerlink7label",
-      "label": " Link Label 7",
-      "default": "Home"
+    {
+
+      "type": "url",
+      "id": "sociallinks1",
+      "label": "Social Link 1"
+      
     },
     {
-        "type": "url",
-        "id": "footerlink7",
-        "label": "Link 7",
-        "default": "/"
-    }
-    ,
-    {
-        "type": "text",
-      "id": "footerlink8label",
-      "label": " Link Label 8",
-      "default": "About"
+
+      "type": "url",
+      "id": "sociallinks2",
+      "label": "Social Link 2"
+      
     },
-    {
-        "type": "url",
-        "id": "footerlink8",
-        "label": "Link 8",
-        "default": "/"
-    }
-    ,
-    {
-        "type": "text",
-      "id": "footerlink9label",
-      "label": " Link Label 9",
-      "default": "Contact"
-    },
-    {
-        "type": "url",
-        "id": "footerlink9",
-        "label": "Link 9",
-        "default": "/"
-    },
+   
     {
     "type": "text",
     "id": "copyrighttext",
     "label": "CopyRight Text",
-    "default": "Designed and developed in New York City. P.O Box 20257 Greeley Square Station 4 East 27th street New York, NY90- © 2024. All Rights Reserved."
-    },
-    {
-        
-        "type": "text",
-        "id": "copyrightlink1",
-        "label": " Copyright Link 1",
-        "default": "Link"
-      }
-      ,
-    {
-        
-        "type": "text",
-        "id": "copyrightlink2",
-        "label": " Copyright Link 2",
-        "default": "Link"
-      },
-      {
-          
-          "type": "text",
-          "id": "copyrightlink3",
-          "label": " Copyright Link 3",
-          "default": "Link"
-        },
-        {
-            
-            "type": "text",
-            "id": "copyrightlink4",
-            "label": " Copyright Link 4",
-            "default": "Link"
-          },
-          {
-              
-              "type": "text",
-              "id": "copyrightlink5",
-              "label": " Copyright Link 5",
-              "default": "Link"
-            }
+    "default": " © 2024. copyRight."
+    }
+   
   ],
   "presets": [
     {

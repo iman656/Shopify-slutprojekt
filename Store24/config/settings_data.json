@@ -1,4 +1,53 @@
 {
   "current": {
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "show-announcement": true,
+          "pdes": "Welcome to Our Store",
+          "bgcolor": "#000000",
+          "txtcolor": "#f5f5f5",
+          "txtfam": "work_sans_n6",
+          "font_size": 16,
+          "link1": "",
+          "link2": ""
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "bghead": "#f1f1f1",
+          "logolink": "\/",
+          "logoalt": "Logo",
+          "logowidth": 140,
+          "logoheight": 60,
+          "navcolor": "#3C3B3B",
+          "navhover": "#686868",
+          "navsize": 22,
+          "iconsize": 24
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footerheading1": "Öppetider",
+          "footerlink1label": "Månd: stängt",
+          "footerlink2label": "Tisd-Fred: 12-18",
+          "footerlink3label": "Lörd: 11-14",
+          "footerheading2": "Kontakta oss",
+          "footerlink4label": "butik@myvortex.se",
+          "footerlink5label": "service@myvortex.se",
+          "footerlink6label": "031-000000",
+          "footerheading3": "Vi är sociala",
+          "sociallinks1": "",
+          "sociallinks2": "",
+          "copyrighttext": "© 2024. All Rights Reserved."
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }

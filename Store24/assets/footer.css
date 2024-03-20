@@ -64,12 +64,12 @@
     color: aliceblue;
 }
 .form-footer button{
-    background: rgb(255, 255, 255);
+    background: rgb(255, 255, 255) !important;
     border-radius: 0px;
     border-style: none;
     border-color: rgb(0, 0, 0);
     border-width: 2px;
-    color: rgb(74, 74, 74);
+    color: rgb(74, 74, 74) !important;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 400;
@@ -88,14 +88,35 @@
 .footer-links-main{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .footer-links{
     width: 230px;
     display: flex;
     
-    align-items: center;
+    align-items: left;
     flex-direction: column;
+    
+}
+.footer-links-social{
+    width: 230px;
+    display: flex;
+    
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+  
+    
+}
+.footer-links-social i{
+    color: aliceblue;
+    font-size: 35px;
+ 
+}
+.footer-links-social div{
+    display: flex;
+    padding: 20px;
+    gap: 20px;
     
 }
 .footer-links-main .pheader{
@@ -104,7 +125,7 @@
     font-weight: 600;
     padding-bottom: 14px;
 }
-.footer-links-main a{
+.footer-links-main span{
     text-decoration: none;
     color: rgb(220, 221, 223);
     font-size: 20px;
@@ -162,6 +183,13 @@
 
 }
 
+@media (max-width: 1100px){
+    .footer-main{
+        flex-direction: column;
+       
+    }
+
+}
 @media (max-width: 800px){
     
     .footer-main{
@@ -175,6 +203,9 @@
     .footer-main2{
         flex-direction: column;
         
+    }
+    .footer-links{
+        align-items: center;
     }
     .linkooi{
         display: none;
@@ -191,6 +222,10 @@
     }
     #hr{
         width: auto;
+    }
+    .footer-links-social{
+        align-items: center;
+        justify-content: center;
     }
 
 }
