@@ -102,7 +102,12 @@
         <!-- Quantity input -->
         <input type="number" name="quantity" id="quantity" value="1" min="1">
         <!-- Add to cart button -->
+         {% if product.available  %}
         <button id="add-to-cart">Add to Cart</button>
+             {% else %}
+        <p>Sold Out</p>
+
+        {% endif %}
       </div>
     {% endform %}
 
@@ -139,7 +144,7 @@
   <div class="main-description-sec">
     <div class="main-navd">
       <button id="btndesc">Description</button>
-      <button id="btndesc2">More Information</button>
+      
     </div>
   </div>
 
@@ -147,51 +152,27 @@
     <p>{{ product.description }}</p>
   </div>
 </div>
+<style>
+  .posec p{
+    padding: 16px 25px;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-color: #009f90;
+  color: #f1f1ef;
+  font-weight: 600;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  cursor: not-allowed;
+  display: inline;
+  }
+  .posec p:hover{
+    background-color: rgb(255, 126, 126);
+  }
+</style>
 
 <script>
-  /*
-        // Add to cart functionality
-        document.getElementById('add-to-cart').addEventListener('click', function() {
-          var variantId = document.getElementById('variant') ? document.getElementById('variant').value : {{ product.variants.first.id }};
-          var quantity = document.getElementById('quantity').value;
-
-          // Make an AJAX request to add the product to cart
-          fetch('/cart/add.js', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              id: variantId,
-              quantity: quantity
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-            // Handle success response
-            console.log('Product added to cart:', data);
-            // Redirect to the cart page or show a success message
-            window.location.href = '/cart'; // Redirect to the cart page
-          })
-          .catch(error => {
-            // Handle any errors that occur during the request
-            console.error('Error adding product to cart:', error);
-            // Display an error message to the user
-            alert('Error adding product to cart. Please try again.');
-          });
-        });
-
-        let mainimg = document.getElementById('mainimg');
-    let otherimgList = document.getElementsByClassName('otherimg');
-
-    // Loop through each element with the 'otherimg' class
-    for (let i = 0; i < otherimgList.length; i++) {
-        // Attach event listener to each element
-        otherimgList[i].addEventListener('click', function() {
-            // Update the src attribute of the main image with the clicked image's src
-            mainimg.src = this.src; // 'this' refers to the clicked image element
-        });
-    }*/
+ 
 
     var product = {{ product | json }}
 
