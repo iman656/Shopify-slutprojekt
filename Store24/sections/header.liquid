@@ -117,6 +117,7 @@
 
 <script>
 
+  // In mobile View There is a Hamburger Icon For Offcanvas Sidebar .These buttons are for that
   
   let closebtn = document.querySelector('#close-btn');
   let openbtn = document.querySelector('#open-btn');
@@ -125,8 +126,10 @@
   openbtn.addEventListener('click', function() {
     console.log("button open")
   
+     // Select the sidebar element
   let sidebar = document.querySelector('.sidebar');
-  sidebar.style.display = "flex";
+
+  sidebar.style.display = "flex";  // Set the display style of the sidebar to flex, showing it
     
   });
 
@@ -134,7 +137,7 @@
     console.log("button close")
   
   let sidebar = document.querySelector('.sidebar');
-  sidebar.style.display = "none";
+  sidebar.style.display = "none";  // Set the display style of the sidebar to none, hiding it
     
   });
   
