@@ -1,3 +1,13 @@
+
+I do not use ViteJS, so i did the styling and Scripts in defult pages!
+
+
+SO:- not need to ->npm run build and I don't use _scss or an external JS
+
+
+
+
+these steps are only when to using the node.js for additiona scss styling and JS files:-
 For Shopify
 
 1. Install NodeJs (version 18 and above is recommended)
