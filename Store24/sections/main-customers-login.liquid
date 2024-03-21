@@ -57,17 +57,29 @@
 
 </div>
 <script>
+
+  /*
+  There are two forms in this page a login and Forget password form. When user clicks on
+  forget we will hide login form and show the other. and similarly on forget forn when he clicks on login we hide the
+  forget form and show the other
+  
+  
+  */
   document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("login-form");
     const forgotPasswordForm = document.getElementById("forgot-password-form");
     const forgotPasswordLink = document.getElementById("forgot-password-link");
     const returnToLoginLink = document.getElementById("return-to-login");
 
+
+    ///hiding login form
     forgotPasswordLink.addEventListener("click", function(event) {
       event.preventDefault();
       loginForm.style.display = "none";
       forgotPasswordForm.style.display = "block";
     });
+
+    ///hiding forget passwoord form
 
     returnToLoginLink.addEventListener("click", function(event) {
       event.preventDefault();

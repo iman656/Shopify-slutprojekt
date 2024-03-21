@@ -1,0 +1,98 @@
+
+
+
+<div class="order-details">
+    <h1>Order Summary</h1>
+
+    <div class="order-summary">
+        <h2>Order #{{ order.order_number }}</h2>
+        
+        <!-- Loop through line items -->
+        <ul class="line-items">
+            {% for line_item in order.line_items %}
+                <li>{{ line_item.title }} - {{ line_item.quantity }} x {{ line_item.price | money }}</li>
+            {% endfor %}
+        </ul>
+
+        <p>Total: {{ order.total_price | money }}</p>
+    </div>
+
+    <div class="customer-info">
+        <h2>Customer Information</h2>
+        <p>Name: {{ order.customer.first_name }} {{ order.customer.last_name }}</p>
+        <p>Email: {{ order.email }}</p>
+        <!-- Add more customer details as needed -->
+    </div>
+
+    <div class="shipping-info">
+        <h2>Shipping Information</h2>
+        <p>Shipping Address: {{ order.shipping_address.address1 }}, {{ order.shipping_address.city }}, {{ order.shipping_address.country }}</p>
+        <!-- Add more shipping details as needed -->
+    </div>
+
+    <div class="payment-info">
+        <h2>Payment Details</h2>
+        <p>Payment Method: {{ order.payment_gateway }}</p>
+        <p>Transaction ID: {{ order.gateway_reference }}</p>
+        <!-- Add more payment details as needed -->
+    </div>
+
+   
+
+</div>
+<style>
+
+
+.order-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.order-details h1, .order-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+.line-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.line-items li {
+    margin-bottom: 5px;
+}
+
+
+.customer-info, .shipping-info, .payment-info {
+    margin-top: 20px;
+}
+
+.customer-info p, .shipping-info p, .payment-info p {
+    margin-bottom: 10px;
+}
+
+
+.order-summary p:last-child {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+</style>
+
+

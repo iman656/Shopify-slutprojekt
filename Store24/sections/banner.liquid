@@ -270,7 +270,7 @@
 
     <script>
     
-    
+    //Getting elements slider, navigation dots and ///previous, next button which are hidden because they were not looking good.
         let slider = document.querySelector('.slider .list');
         let items = document.querySelectorAll('.slider .list .item');
         let next = document.getElementById('next');
@@ -279,14 +279,21 @@
         
         let lengthItems = items.length - 1;
         let active = 0;
+      /// logic for next button
+      
         next.onclick = function(){
             active = active + 1 <= lengthItems ? active + 1 : 0;
             reloadSlider();
         }
+         /// logic for previous button
+      
         prev.onclick = function(){
             active = active - 1 >= 0 ? active - 1 : lengthItems;
             reloadSlider();
         }
+
+      ///changing slides after every 8 seconds
+      
         let refreshInterval = setInterval(()=> {next.click()}, 8000);
         function reloadSlider(){
             slider.style.left = -items[active].offsetLeft + 'px';
@@ -300,7 +307,7 @@
         
             
         }
-        
+        ///logic for the dots
         dots.forEach((li, key) => {
             li.addEventListener('click', ()=>{
                  active = key;
@@ -328,6 +335,8 @@
         "id": "bn2",
         "label": "First Slide Image"
     
+    
+    
     },
     {
 
@@ -351,12 +360,16 @@
         "id": "bn2button",
         "label": "First Slide Button Text",
         "default" :"Shop Now"
+        
+    
     
     },
     {
         "type": "image_picker",
         "id": "bn1",
         "label": "First Slide Image"
+    
+    
     
     },
     {
@@ -372,6 +385,8 @@
         "id": "bn1description",
         "label": "Second Slide Description",
         "default" :"This is the description for the heading above"
+     
+    
     },
     
     {
@@ -379,11 +394,16 @@
         "id": "bn1button",
         "label": "Second Slide Button Text",
         "default" :"Shop Now"
+        
+    
+    
     },
     {
         "type": "image_picker",
         "id": "bn4",
         "label": "Third Slide Image"
+    
+    
     
     },
     {
@@ -408,6 +428,9 @@
         "id": "bn4button",
         "label": "Third Slide Button Text",
         "default" :"Shop Now"
+        
+    
+    
     }
 
 
