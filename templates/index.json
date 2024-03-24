@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "banner": {
+      "type": "banner",
+      "settings": {
+      }
+    },
+    "featuredproduct": {
+      "type": "featuredproduct",
+      "settings": {
+      }
+    },
+    "bannersecond": {
+      "type": "bannersecond",
+      "settings": {
+      }
+    },
+    "sectiontwoimgsecond": {
+      "type": "sectiontwoimgsecond",
+      "settings": {
+      }
+    },
+    "bannerthird": {
+      "type": "bannerthird",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "featuredproduct",
+    "bannersecond",
+    "sectiontwoimgsecond",
+    "bannerthird"
+  ]
+}

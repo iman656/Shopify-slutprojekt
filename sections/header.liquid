@@ -35,9 +35,28 @@
       {% endfor %}
       
       </ul>
-    
-
-     
+      {% comment %}
+        {% assign count = 0 %}
+        {% for collection in collections %}
+          {% if count < 3 %}
+            <p id="{{ collection.handle }}" class="category"> {{ collection.title }}<i class="fa-solid fa-chevron-down iconn "></i></p>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      
+      {% if section.settings['show-collection'] %}
+      <p class="category" onclick="popup()">{{ section.settings.cat1 }}</p>
+      <p class="category">{{ section.settings.cat2 }}</p>
+      <p class="category">{{ section.settings.cat3 }}</p>
+      <button onclick="popup()">hhh</button>
+      
+      {% endif %}
+      {% if section.settings['show-menu'] %}
+        
+          
+      <a href="{{ section.settings.link1 }}">  <p class="menulink">{{ section.settings.menulink1 }}</p></a>
+      <a href="{{ section.settings.link2 }}">  <p class="menulink">{{ section.settings.menulink2}}</p></a>
+        {% endif %}{% endcomment %}
      
     </div>
 
@@ -98,11 +117,11 @@
 
 <script>
 
-  // These button are to open and close Offcanvas sidebar in mobile View.
+  
   let closebtn = document.querySelector('#close-btn');
   let openbtn = document.querySelector('#open-btn');
 
-/// Adding logic to open button
+
   openbtn.addEventListener('click', function() {
     console.log("button open")
   
@@ -110,7 +129,7 @@
   sidebar.style.display = "flex";
     
   });
-/// Adding logic to Close button
+
   closebtn.addEventListener('click', function() {
     console.log("button close")
   
@@ -206,3 +225,58 @@
   ]
 }
 {% endschema %}
+{% comment %}
+    {
+      "type": "checkbox",
+      "id": "show-collection",
+      "label": "Show Collection",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cat1",
+      "label": "Collection 1",
+      "default": "Accessories"
+     
+    },
+    {
+      "type": "text",
+      "id": "cat2",
+      "label": "Collection 2"
+    },
+    {
+      "type": "text",
+      "id": "cat3",
+      "label": "Collection 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-menu",
+      "label": "Show Menu",
+      "default": true
+      
+    },
+    {
+      "type": "text",
+      "id": "menulink1",
+      "label": "Link 1 Text",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "link1",
+      "label": "link 1"
+      
+    },
+    {
+      "type": "text",
+      "id": "menulink2",
+      "label": "Link 2 Text",
+      "default": "Help"
+    },
+    {
+      "type": "url",
+      "id": "link2",
+      "label": "link 2"
+    
+    }{% endcomment %}

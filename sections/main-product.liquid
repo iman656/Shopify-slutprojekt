@@ -1,5 +1,23 @@
 
+<div class="atc-btn">
+
+  <div class="alert success">
+    <span class="closebtn">&times;</span>  
+    <strong>Success!</strong> Your Product is added to cart
+  </div>
+</div>
+<div class="atc-btn-failed">
+
+  <div class="alert warning">
+    <span class="closebtn">&times;</span>  
+    <strong>Failed!</strong> Your Product was not added to cart.
+  </div>
+</div>
+
+
+
 <div class="firstmainbr">
+
   <div class="main-breadcrumbs">
     {% if template contains 'product' %}
       <nav class="breadcrumbs">
@@ -60,7 +78,16 @@
       <div class="pprices"> <p class="product-original">{{ product.selected_or_first_available_variant.price | money }}</p></div>
     {% endif %}
 
-  
+    {% comment %}
+      {% if product.variants.size > 1 %}
+        <select name="variant" id="variant">
+          {% for variant in product.variants %}
+
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+    {% endcomment %}
     {% form 'product', product %}
       <input id="product-id" type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
       {% if product.variants.size > 1 %}
@@ -159,8 +186,8 @@
 </style>
 
 <script>
- /// Geting the json object of product
-
+ 
+///funtion for variants
     var product = {{ product | json }}
 
     // Function to update product variant and URL based on selected options
@@ -203,10 +230,7 @@
     let mainimg = document.getElementById('mainimg');
 let otherimgList = document.getElementsByClassName('otherimg');
 
-  
-// Funtion to change Main img with the other images
 // Loop through each element with the 'otherimg' class
-  
 for (let i = 0; i < otherimgList.length; i++) {
     // Attach event listener to each element
     otherimgList[i].addEventListener('click', function() {
@@ -215,5 +239,66 @@ for (let i = 0; i < otherimgList.length; i++) {
     });
 }
 
+/// Funtion for add to cart without reload or redirect
+document.addEventListener('DOMContentLoaded', function() {
+  // Add event listener to the "Add to Cart" button
+  var addToCartButton = document.getElementById('add-to-cart');
+  if (addToCartButton) {
+    addToCartButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Gather product information
+      var productId = document.getElementById('product-id').value;
+      var quantity = document.getElementById('quantity').value;
+      
+      // Construct the URL to add the item to the cart
+      var addToCartUrl = '/cart/add.js?quantity=' + quantity + '&id=' + productId;
+
+      // Send a request to add the item to the cart asynchronously
+      fetch(addToCartUrl, {
+        method: 'POST'
+      })
+      .then(response => {
+        // Handle the response as needed and show sucess notofication
+        let atcSuccess = document.querySelector('.atc-btn');
+        if (atcSuccess) {
+          atcSuccess.style.display = "flex";
+        }
+        console.log('Product added to cart successfully');
+        // Optionally, you can update the UI to reflect the successful addition
+      })
+      .catch(error => {
+        // Handle errors and show failed notification
+        console.error('Error adding product to cart:', error);
+        let atcfail = document.getElementsByClassName('atc-btn=failed');
+
+        atcfail.style.display = "flex";
+        // Optionally, you can display an error message to the user
+      });
+    });
+  }
+});
     
+
+
+// funtion to close notification
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+// Loop through all close buttons
+for (i = 0; i < close.length; i++) {
+  // When someone clicks on a close button
+  close[i].onclick = function(){
+
+    // Get the parent of <span class="closebtn"> (<div class="alert">)
+    var div = this.parentElement;
+
+    // Set the opacity of div to 0 (transparent)
+    div.style.opacity = "0";
+
+    // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+
 </script>

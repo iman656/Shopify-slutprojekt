@@ -270,7 +270,7 @@
 
     <script>
     
-    //Getting elements slider, navigation dots and ///previous, next button which are hidden because they were not looking good.
+    
         let slider = document.querySelector('.slider .list');
         let items = document.querySelectorAll('.slider .list .item');
         let next = document.getElementById('next');
@@ -279,21 +279,14 @@
         
         let lengthItems = items.length - 1;
         let active = 0;
-      /// logic for next button
-      
         next.onclick = function(){
             active = active + 1 <= lengthItems ? active + 1 : 0;
             reloadSlider();
         }
-         /// logic for previous button
-      
         prev.onclick = function(){
             active = active - 1 >= 0 ? active - 1 : lengthItems;
             reloadSlider();
         }
-
-      ///changing slides after every 8 seconds
-      
         let refreshInterval = setInterval(()=> {next.click()}, 8000);
         function reloadSlider(){
             slider.style.left = -items[active].offsetLeft + 'px';
@@ -307,7 +300,7 @@
         
             
         }
-        ///logic for the dots
+        
         dots.forEach((li, key) => {
             li.addEventListener('click', ()=>{
                  active = key;

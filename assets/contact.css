@@ -1,0 +1,60 @@
+.contact-main{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+ margin-bottom: 50px;
+ margin-top: 50px;
+
+}
+.contact-main-wrapper{
+    display: flex;
+ align-items: left;
+ justify-content: left;
+ flex-direction: column;
+}
+.connn{
+
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    padding-bottom:30px ;
+}
+
+.connn input{
+
+    height: 50px;
+    margin: 0;
+    
+    background-color: rgb(214, 214, 214);
+  
+
+}
+.connn input::placeholder{
+    font-size: 15px;
+    padding: 10px;
+    color: rgb(147, 147, 147);
+}
+.connn textarea{
+
+    
+    margin: 0;
+    
+    background-color: rgb(214, 214, 214);
+  
+
+}
+.connn textarea::placeholder{
+    font-size: 15px;
+    padding: 10px;
+    color: rgb(147, 147, 147);
+}
+
+.submit input{
+    height: 50px;
+    width: 90px;
+    background-color: rgb(42, 42, 42);
+    color: aliceblue;
+}
+
+

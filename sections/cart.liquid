@@ -6,7 +6,6 @@
       <table class="cart-table">
         <thead>
           <tr>
-            //product image is hiddenin mobile view
             <th id="thhide">Product</th>
             <th>Title</th>
             <th>Unit Price</th>
@@ -28,7 +27,7 @@
                 <td>{{ item.price | money }}</td>
                 <td><input name="updates[]" value="{{ item.quantity }}" class="cart-quantity" type="number"></td>
                 <td>{{ item.line_price | money }}</td>
-                <td class="removecart"><a href="{{ item.url_to_remove }}"><i class="fa-regular fa-trash-can"></i></a></td>
+                <td class="removecart"><a href="/cart/change?line={{ item.key }}&quantity=0&id={{ item.variant.id }}"><i class="fa-regular fa-trash-can"></i></a></td>
               </tr>
             {% endfor %}
             <tr>
@@ -52,7 +51,42 @@
   {% endform %}
   
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var removeButtons = document.querySelectorAll('.removecart a');
+    if (removeButtons) {
+        removeButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
 
+                // Extract variant ID and line item number from the URL
+                var url = new URL(button.href);
+                var variantId = url.searchParams.get('id');
+                var line = parseInt(url.searchParams.get('line'));
+
+                // Construct the URL to remove the item from the cart
+                var removeFromCartUrl = '/cart/change.js?line=' + line + '&quantity=0&id=' + variantId;
+
+                // Send a request to remove the item from the cart asynchronously
+                fetch(removeFromCartUrl, {
+                    method: 'POST'
+                })
+                .then(response => {
+                    // Handle the response as needed
+                    console.log('Product removed from cart successfully');
+                    // Optionally, update the UI to reflect the removal
+                    window.location.reload(); // Reload the page to reflect the updated cart
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error removing product from cart:', error);
+                    // Optionally, display an error message to the user
+                });
+            });
+        });
+    }
+});
+</script>
 
 <style>
   /* Base Styles */
