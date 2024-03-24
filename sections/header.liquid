@@ -60,12 +60,14 @@
      
     </div>
 
-    <div class="header-icons">
-      <form action="/search" id="fm"><input type="search" placeholder="Search Here" class="search"></form>
-      <a href="https://mystoregrit24.myshopify.com/account/"><i id="ic2" class="fa-regular fa-user icon"></i></a>
-      <a href="https://mystoregrit24.myshopify.com/cart/"><i id="ic3" class="fa-solid fa-basket-shopping icon"></i></a>
-      <i id="open-btn" class="fa-solid fa-bars"></i>
-    </div>
+        <div class="header-icons">
+              <form action="/search" id="fm"><input type="search" placeholder="Search Here" class="search"></form>
+              <a href="https://mystoregrit24.myshopify.com/account/"><i id="ic2" class="fa-regular fa-user icon"></i></a>
+              <a href="https://mystoregrit24.myshopify.com/cart/"><i id="ic3" class="fa-solid fa-basket-shopping icon">
+                    <span class="summa">{{ cart.total_price | money }}</span> 
+              </i></a>
+              <i id="open-btn" class="fa-solid fa-bars"></i>
+        </div>
   </div>
 
 
@@ -111,7 +113,16 @@
   .header-icons i{
     font-size: {{section.settings.iconsize}};
     margin-bottom: 8px;
+    
 }
+
+
+.summa {
+  color: black;
+  font-size: 15;
+}
+  
+
 
 </style>
 

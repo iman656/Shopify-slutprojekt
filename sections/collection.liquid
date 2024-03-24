@@ -35,7 +35,7 @@
     </div>
   </section>
 
-  {{ paginate | default_pagination }}
+  <span class="pagination-part">  {{ paginate | default_pagination }}  </span>
 {% endpaginate %}
 
 <style>
@@ -46,6 +46,7 @@
     ;
     padding: 10px;
     display: flex;
+    padding-bottom: 40px;
     justify-content: space-between
   }
   .products-grid {
@@ -64,6 +65,12 @@
     max-width: 100%;
     height: auto;
   }
+  .pagination-part{
+    margin-left: 50%;
+    font-size: larger;
+    padding-bottom: 20px;
+   
+}
 </style>
 
 <script>

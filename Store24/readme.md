@@ -2,7 +2,8 @@
 I do not use ViteJS, so i did the styling and Scripts in defult pages!
 
 
-SO:- not need to ->npm run build and I don't use _scss or an external JS
+So then:- not need to ->npm run build and I don't use _scss or an external JS.
+Leave the next steps.
 
 
 
